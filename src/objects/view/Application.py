@@ -158,7 +158,7 @@ class FirstWindow(ttk.Frame):
             with open(file, "w") as f:
                 f.write("{\n")
                 for it, (key, val) in enumerate(ACTIVE_STOCK.items()):
-                    f.write("'" + key + "': '" + str(val) + "'")
+                    f.write("'" + key + "': " + str(val))
                     if it < len(ACTIVE_STOCK) - 1:
                         f.write(",")
                     if it % 4 == 0:

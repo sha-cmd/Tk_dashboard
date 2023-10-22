@@ -1,0 +1,31 @@
+id,Description,Fr,En
+0,"Menu Fichier",Fichier,Files
+1,"Quitter",Quitter,Exit
+2,"OK",OK,OK
+3,"Sélectionner",Valider,Select
+4,"Annuler",Annuler,Cancel
+5,"Langage",Langage,Language
+6,"Choisir son langage","Choisir son langage","Select your language"
+7,"Nouveau",Nouveau,New
+8,"À propos","À propos",About
+9,"Aide",Aide,Help
+10,"Ouvrir Fichier","Ouvrir","Open File"
+11,"Sauvegarder Fichier",Sauver,Save
+12,"Fermer l'Onglet","Fermer",Close
+13,"Portfolio",Portefeuille,Portfolio
+14,"Langue Information","La langue sera modifié au prochain démarrage","Modification will be effective at next reboot"
+15,"Nom du programme","Mon programme","My software"
+16,"Texte de présentation","
+Version : 1.0
+Auteur : Romain BOYRIE
+","
+Version : 1.0
+Author : Romain BOYRIE
+"
+17,"Langue","Français - fr","English - en"
+18,"Clore le portfolio","Voulez-vous vraiment fermer le portfolio actuel ?","Do you really want to close this portfolio?"
+19,"Sélectionner Valeurs","Sélectionner Valeurs","Select Values"
+20,"Base de données","Base de données","Database"
+21,"Télécharger","Télécharger","Download"
+22,"Observation Table de valeur","Tables","Tables"
+23,"Message durant le téléchargement","Téléchargement des données pour : ","Downloading data for : "

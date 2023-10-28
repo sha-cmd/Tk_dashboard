@@ -12,6 +12,7 @@ from ttkbootstrap import LabelFrame
 from ttkbootstrap.constants import *
 from ttkbootstrap.dialogs.dialogs import Messagebox
 from src.objects.controller.constant import _COLUMNS_STOCK
+from src.objects.model.db_conn import _DB_PATH
 from src.objects.controller.constant import _NAME_STOCK
 from src.objects.controller.constant import _MNEMO
 from src.objects.controller.constant import _MNEMO_SRC
@@ -26,6 +27,7 @@ from src.objects.view.Lang import Lang
 from src.objects.view.Portfolio import Portfolio
 from src.objects.view.BDD import BDD
 
+global DB_PATH
 global LANG
 global LANGS
 global MNEMO
@@ -37,6 +39,7 @@ global TEXTS
 global ACTIVE_STOCK
 global SELECTED_TABLE
 
+DB_PATH = _DB_PATH
 LANG = _LANG
 LANGS = _LANGS
 MNEMO = _MNEMO
@@ -73,7 +76,7 @@ class FirstWindow(ttk.Frame):
 
     def close_app(self):
         try:
-            os.remove("bdd/Databases.Stocks")
+            os.remove(DB_PATH)
         except FileNotFoundError:
             logger.debug("Database is not found")
         finally:

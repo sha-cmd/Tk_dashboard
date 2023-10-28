@@ -4,21 +4,21 @@ from sqlalchemy import create_engine
 from sqlalchemy import Table, Column, Integer, String, Float, BigInteger
 from sqlalchemy import MetaData
 
-global DB_PATH
+global _DB_PATH
 global IF_EXIST
 
-DB_PATH = "bdd/Databases.Stocks"
+_DB_PATH = "bdd/Databases.Stocks"
 IF_EXIST = "replace"
 
 logger = log()
 
 
 class DB_CONNECT:
-    global DB_PATH
+    global _DB_PATH
     global IF_EXIST
 
     def __init__(self):
-        self.path = DB_PATH
+        self.path = _DB_PATH
         self.engine = create_engine("sqlite+pysqlite:///" + self.path, echo=True)
 
     def schema(self):
@@ -37,7 +37,7 @@ class DB_CONNECT:
         Contrôle existence de la base de données.
         :return:
         """
-        file_exists = exists(DB_PATH)
+        file_exists = exists(_DB_PATH)
         return file_exists
 
     def write_to_db(self, df, name, if_exist=IF_EXIST):

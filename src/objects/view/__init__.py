@@ -1,5 +1,5 @@
 
-__all__ = ["Application"]
+__all__ = ["Application", "Lang", "BDD", "CRUD", "FirstWindow", "Portfolio"]
 
 import src.objects.view.Application
 

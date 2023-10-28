@@ -9,21 +9,22 @@ global DB_PATH
 
 DB_PATH = _DB_PATH
 
+
 class TestClass:
     def test_text_prg(self):
         df = pd.read_csv("src/lang/text_prg.csv")
         assert True not in df.isna().iloc[0].to_list()
 
-    def test_two(self):
-        class Perso:
-            def check(self):
-                pass
+    def test_mnemo_csv(self):
+        df = pd.read_csv("src/mnemo/mnemo.csv")
+        assert True not in df.isna().any()
 
-        x = Perso
-        assert hasattr(x, "check")
+    def test_mnemo_json(self):
+        df = pd.read_json("src/mnemo/mnemo.json", orient="index")
+        assert True not in df.isna().any()
 
-    def test_three(self):
-        x = DB_CONNECT()
+    def test_write_in_db(self):
+        db = DB_CONNECT()
         t = Ticket("AIRBUS SE")
         d = Downloader(t)
         os.remove(DB_PATH)

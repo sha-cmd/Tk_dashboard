@@ -1,6 +1,3 @@
-import ast
-import os
-
 from copy import deepcopy as dc
 
 import tkinter

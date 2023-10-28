@@ -86,10 +86,8 @@ class BDD(ttk.Toplevel):
         db = SingletonDBconnect()
         inspector = inspect(db.engine)
         tables = inspector.get_table_names()
-        print(tables)
         for stock, active in ACTIVE_STOCK.items():
             if int(active) == 0 and stock.lower().replace(" ", "_") in tables:
-                print(stock, active)
                 with db.engine.connect() as conn:
                     sql = text(
                         f"DROP TABLE IF EXISTS {stock.lower().replace(' ', '_')};"

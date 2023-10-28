@@ -5,8 +5,11 @@ import pandas as pd
 
 from src.objects.controller.Ticket import Ticket
 from src.objects.model.db_conn import SingletonDBconnect
+from src.objects.controller.logger import log_init as log
 
 from src.objects.model.db_conn import DB_CONNECT
+
+logger = log()
 
 class Downloader:
     def __init__(self, ticket: Ticket):
@@ -37,6 +40,8 @@ class Downloader:
             self.data = self.data[["open", "high", "low", "close", "volume"]]
         except KeyError as e:
             print(f"Pas de données dans {self.ticket.name} : {e}")
+            logger.debug(f"Pas de données dans {self.ticket.name} : {e}")
+
 
 
     def writer(self):
@@ -44,8 +49,3 @@ class Downloader:
         if db.db_exist():
             conn = db.engine.connect()
             db.write_to_db(self.data, self.ticket.name_table, conn)
-
-
-if __name__ == "__main__":
-    t = Ticket("ACCOR")
-    d = Downloader(t)

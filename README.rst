@@ -1,5 +1,5 @@
 ============================
- ABQ Data Entry Application
+ Dashboard & Tk Application
 ============================
 
 Description
@@ -25,7 +25,7 @@ Requirements
 
 * Python 3
 * Tkinter
-* Psycop 3
+* Sqlite
 
 Usage
 =====
@@ -38,10 +38,12 @@ To compile the application, run::
 
     python3 pysetup.py
 
+To compile the application, on windows, run::
+
+    python3 pysetup_wd.py
+
 General Notes
 =============
-
-
 
 This program need an internet connexion to download data.
 

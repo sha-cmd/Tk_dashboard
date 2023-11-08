@@ -26,6 +26,7 @@ from src.objects.view.CRUD import CRUD
 from src.objects.view.Lang import Lang
 from src.objects.view.Portfolio import Portfolio
 from src.objects.view.BDD import BDD
+from src.objects.view.Dashboard import Dashboard
 
 global DB_PATH
 global LANG
@@ -70,7 +71,7 @@ class FirstWindow(ttk.Frame):
         )
         btn_exit.grid(column=1, row=2, sticky=SE, padx=5, pady=5)
         btn_download = ttk.Button(
-            self, text=self.texts[21], bootstyle=PRIMARY, command=self.create_bdd
+            self, text=self.texts[24], bootstyle=PRIMARY, command=self.create_dashboard
         )
         btn_download.grid(column=0, row=2, sticky=S, padx=5, pady=5)
 
@@ -133,3 +134,6 @@ class FirstWindow(ttk.Frame):
 
     def crud(self):
         self.crud = CRUD(self)
+
+    def create_dashboard(self):
+        self.dashboard = Dashboard(self)

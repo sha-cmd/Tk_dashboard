@@ -34,26 +34,20 @@ COLUMNS = [
 
 class Analyse:
     def __init__(self):
-        self.avg = {str(): Decimal()}
-        self.avg_d_log = {str(): Decimal()}
-        self.avg_a_log = {str(): Decimal()}
-        self.avg_d_dis = {str(): Decimal()}
-        self.avg_a_dis = {str(): Decimal()}
-        self.avg1 = {str(): Decimal()}
-        self.avg3 = {str(): Decimal()}
-        self.avg5 = {str(): Decimal()}
-        self.avg10 = {str(): Decimal()}
-        self.avg25j = {str(): Decimal()}
-        self.avg5j = {str(): Decimal()}
-        self.perf_shot = {str(): Decimal()}
-        self.price = {str(): Decimal()}
-        self.avg_cac40 = {str(): Decimal()}
-        self.beta = {}
+        self.avg = {}
+        self.avg_d_log = {}
+        self.avg_a_log = {}
+        self.avg_d_dis = {}
+        self.avg_a_dis = {}
+        self.avg1 = {}
+        self.avg3 = {}
+        self.avg5 = {}
+        self.avg10 = {}
+        self.avg25j = {}
+        self.avg5j = {}
+        self.perf_shot = {}
+        self.price = {}
         self.risk = {}
-        self.dictionnaire_beta = {}
-        self.trans = {}
-
-        self.synoptique = pd.DataFrame(columns=COLUMNS)
 
     def last_day_perf(self, data, name):
         self.perf_shot.update(
@@ -101,7 +95,9 @@ class Analyse:
         else:
             self.avg1.update({name: None})
         print(f"{today.year - 3}-{today.month:>02}-{today.day:>02}")
-        diff = np.busday_offset(f"{today.year - 3}-{today.month:>02}-{today.day:>02}", 0, roll="forward")
+        diff = np.busday_offset(
+            f"{today.year - 3}-{today.month:>02}-{today.day:>02}", 0, roll="forward"
+        )
         days = np.busday_count(diff, today)
         if data["close"].count() >= int(days):
             self.avg3.update(
@@ -121,7 +117,9 @@ class Analyse:
             )
         else:
             self.avg3.update({name: None})
-        diff = np.busday_offset(f"{today.year - 5}-{today.month:>02}-{today.day:>02}", 0, roll="forward")
+        diff = np.busday_offset(
+            f"{today.year - 5}-{today.month:>02}-{today.day:>02}", 0, roll="forward"
+        )
         days = np.busday_count(diff, today)
         if data["close"].count() >= days:
             self.avg5.update(
@@ -141,26 +139,28 @@ class Analyse:
             )
         else:
             self.avg5.update({name: None})
-        diff = np.busday_offset(f"{today.year - 9}-{today.month:>02}-{today.day:>02}", 0, roll="forward")
+        diff = np.busday_offset(
+            f"{today.year - 9}-{today.month:>02}-{today.day:>02}", 0, roll="forward"
+        )
         days = np.busday_count(diff, today)
-        #if data["close"].count() >= days:
+        # if data["close"].count() >= days:
         self.avg10.update(
             {
                 name: round(
                     (
-                            (
-                                    data.iloc[-1]["close"]
-                                    / data.loc[data.index == diff]["close"].iloc[0]
-                            )
-                            - 1
+                        (
+                            data.iloc[-1]["close"]
+                            / data.loc[data.index == diff]["close"].iloc[0]
+                        )
+                        - 1
                     )
                     * 100,
                     2,
-                    )
+                )
             }
         )
-        #else:
-       #     self.avg5.update({name: None})
+        # else:
+        #     self.avg5.update({name: None})
         self.avg5j.update(
             {
                 name: round(
@@ -216,16 +216,3 @@ class Analyse:
             + ".png",
         )
         plt.close()
-
-
-if __name__ == "__main__":
-    name = "air_liquide"
-    r = Reader().read(name)
-    a = Analyse()
-    a.last_day_perf(r, name)
-    print(a.avg1)
-    print(a.avg3)
-    print(a.avg5)
-    print(a.avg10)
-    print(a.avg)
-    print(a.price)

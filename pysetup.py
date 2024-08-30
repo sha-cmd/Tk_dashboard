@@ -1,8 +1,9 @@
 import PyInstaller.__main__
-
+#  Insert the absolute path to main.py
+#  Insert the absolute path to python bin directory
 PyInstaller.__main__.run(
     [
-        "home/romain/Dropbox/BackUp/Code/Book/main.py",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/main.py",
         "--windowed",
         "--name",
         "prg_lx",
@@ -26,23 +27,23 @@ PyInstaller.__main__.run(
         "--hidden-import",
         "multiprocessing",
         "--workpath",
-        "/home/romain/Dropbox/BackUp/Code/Book/build",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/build",
         "--distpath",
-        "/home/romain/Dropbox/BackUp/Code/Book/dist",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/dist",
         "--specpath",
-        "/home/romain/Dropbox/BackUp/Code/Book",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/",
         "--add-data",
         "/lib/x86_64-linux-gnu/libpython3.10.so.1.0:.",
         "--add-data",
-        "/home/romain/Dropbox/BackUp/Code/Book/src/mnemo/mnemo.csv:./src/mnemo",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/src/mnemo/mnemo.csv:./src/mnemo",
         "--add-data",
-        "/home/romain/Dropbox/BackUp/Code/Book/src/mnemo/mnemo.json:./src/mnemo",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/src/mnemo/mnemo.json:./src/mnemo",
         "--add-data",
-        "/home/romain/Dropbox/BackUp/Code/Book/src/lang/text_prg.csv:./src/lang",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/src/lang/text_prg.csv:./src/lang",
         "--paths",
         "/home/romain/Documents/Venv/Pyinstaller/bin",
         "--add-data",
-        "/home/romain/Dropbox/BackUp/Code/Book/bdd/note.txt:./bdd",
+        "/home/romain/Dropbox/BackUp/Code/Tk_dashboard/bdd/note.txt:./bdd",
         "--clean",
     ]
 )

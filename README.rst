@@ -42,6 +42,14 @@ To compile the application, on windows, write paths in pysetup script then run::
 
     python3 pysetup_wd.py
 
+Choose your stocks :
+
+![](img/Selection.png)
+
+Create Read Update or Delet lines in stock tables :
+
+![](img/CRUD.png)
+
 General Notes
 =============
 

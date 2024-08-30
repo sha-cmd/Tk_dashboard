@@ -34,11 +34,11 @@ To start the application, run::
 
   python3 main.py
 
-To compile the application, run::
+To compile the application, write paths in pysetup script then run::
 
     python3 pysetup.py
 
-To compile the application, on windows, run::
+To compile the application, on windows, write paths in pysetup script then run::
 
     python3 pysetup_wd.py
 
